@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .floc {
+        font-size: 30px;
+        position: fixed;
+        color: red;
+        top: 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <span class="floc">❄</span>
+    <script>
+      document.querySelectorAll(".floc").forEach((floc) => {
+        floc.style.top = "-10%";
+        floc.style.left = 100 * Math.random() + "%";
+        setInterval(() => {
+          incrementa(floc, 2 * Math.random(), 0.5);
+        }, 40);
+      });
+      function incrementa(obj, quantitatTop, quantitatLeft) {
+        let top = parseInt(obj.style.top);
+        let left = parseInt(obj.style.left);
+        obj.style.top = top + quantitatTop + "%";
+        obj.style.left = left + quantitatLeft + "%";
+        if (top + quantitatTop >= 100) {
+          obj.style.top = "-10%";
+        }
+        if (left + quantitatLeft >= 100) {
+          obj.style.left = "-10%";
+        }
+      }
+    </script>
+  </body>
+</html>
